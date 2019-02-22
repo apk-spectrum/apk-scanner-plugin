@@ -330,12 +330,12 @@ Manifest file structure
 -->
 
 <manifest package="com.apkscanner.plugin.PlayStoreSearcher" versionCode="1" versionName="1.0" minScannerVersion="2.4.0">
-    <plugin label="@plugin_name" icon="GooglePlayStoreIcon.png" description="@plugin_description" >
+    <plugin label="@plugin_name" icon="PlayStoreIcon.png" description="@plugin_description" >
         <package-searcher-linker
         	target="package"
         	url="https://play.google.com/store/apps/details?id=%TARGET%" 
         	label="@search_by_packagename"
-        	icon="GooglePlayStoreIcon.png"
+        	icon="PlayStoreIcon.png"
         	pluginGroup=".searcherGroup"
         	description="@search_by_packagename_desc" />
 
@@ -344,7 +344,7 @@ Manifest file structure
         	url="https://play.google.com/store/search?q=%TARGET%&amp;c=apps"
         	preferLanguage="ko;en"
         	label="@search_by_appname"
-        	icon="GooglePlayStoreIcon.png"
+        	icon="PlayStoreIcon.png"
         	visibleToBasic="false"
         	pluginGroup=".searcherGroup"
         	description="@search_by_appname_desc" />
