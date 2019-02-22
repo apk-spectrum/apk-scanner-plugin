@@ -15,7 +15,7 @@ Manifest file conventions
   Declaring class names
     Plugin elements correspond to Java objects.
     If you define a subclass, the subclass is declared through a name attribute.
-    The name must include the full package designation. For example, a plgin subclass might be declared as follows: 
+    The name must include the full package designation. For example, a plgin subclass might be declared as follows:
       "<package-searcher name="com.apkscanner.plugin.sample.PlayStore" ... />"
     However, if the first character of the string is a period, the plugin's package name (as specified by the <manifest> element's package attribute) is appended to the string.
     The following assignment is the same as that shown above:
@@ -23,10 +23,10 @@ Manifest file conventions
 
   Icons and labels
     A number of elements have icon and label attributes for a small icon and a text label that can be displayed to users.
-    Some also have a description attribute for longer, explanatory text that can also be shown on-screen. 
+    Some also have a description attribute for longer, explanatory text that can also be shown on-screen.
     In every case, the icon and label that are set in a containing element become the default icon and label settings for all of the container's subelements.
     Thus, the icon and label that are set in the <plugin> element are the default icon and label for each of the plugin's components.
-    
+
   Enabled
     The most elements have enabled attributes that can set activillity for container's.
     It's can be possible change by the plugin manager or self.
@@ -131,7 +131,7 @@ Manifest file structure
       The <plugin> and <plugin> attributes must both be "true" (as they both are by default) for the system to be able to instantiate the plugin.
       If either is "false", it cannot be instantiated.
     icon - There is no default icon.
-      An icon representing the plugin. The icon is displayed to users when a representation of the plugin is required on-screen. 
+      An icon representing the plugin. The icon is displayed to users when a representation of the plugin is required on-screen.
       If it is not set, the icon specified for the plugin as a whole is used instead (see the <plugin> element's icon attribute).
     label - There is no default value.
       A user-readable label for the plugin. The label is displayed on-screen when the plugin must be represented to the user.
@@ -141,7 +141,7 @@ Manifest file structure
       The attribute value should be a fully qualified class name (such as, "com.apkscanner.plugin.sample.PlayStore").
       However, as a shorthand, if the first character of the name is a period (for example, ".PlayStore"),
       it is appended to the package name specified in the <manifest> element.
-    pluginGroup - 
+    pluginGroup -
 
 
 <package-searcher-linker>
@@ -158,7 +158,7 @@ Manifest file structure
     </package-searcher-linker>
 
   CONTAINED IN: <plugin>
-  
+
   CAN CONTAIN: <linker>
 
   DESCRIPTION:
@@ -173,7 +173,7 @@ Manifest file structure
       The <plugin> and <plugin> attributes must both be "true" (as they both are by default) for the system to be able to instantiate the plugin.
       If either is "false", it cannot be instantiated.
     icon - There is no default icon.
-      An icon representing the plugin. The icon is displayed to users when a representation of the plugin is required on-screen. 
+      An icon representing the plugin. The icon is displayed to users when a representation of the plugin is required on-screen.
       If it is not set, the icon specified for the plugin as a whole is used instead (see the <plugin> element's icon attribute).
     label - There is no default value.
       A user-readable label for the plugin. The label is displayed on-screen when the plugin must be represented to the user.
@@ -181,7 +181,7 @@ Manifest file structure
     url - There is no default. The name must be specified.
       The url of website that access by browser. there are website that search information for package's
       The attribute value should be a fully qualified url address (such as, "https://play.google.com/store").
-      
+
 
 <update-checker>
 
@@ -206,7 +206,7 @@ Manifest file structure
       The <plugin> and <plugin> attributes must both be "true" (as they both are by default) for the system to be able to instantiate the plugin.
       If either is "false", it cannot be instantiated.
     icon - There is no default icon.
-      An icon representing the plugin. The icon is displayed to users when a representation of the plugin is required on-screen. 
+      An icon representing the plugin. The icon is displayed to users when a representation of the plugin is required on-screen.
       If it is not set, the icon specified for the plugin as a whole is used instead (see the <plugin> element's icon attribute).
     label - There is no default value.
       A user-readable label for the plugin. The label is displayed on-screen when the plugin must be represented to the user.
@@ -215,7 +215,7 @@ Manifest file structure
       The name of the class that implements the plugin, a subclass of IPlugIn.
       The attribute value should be a fully qualified class name (such as, "com.apkscanner.plugin.sample.PlayStore").
       However, as a shorthand, if the first character of the name is a period (for example, ".PlayStore"),
-      it is appended to the package name specified in the <manifest> element.  
+      it is appended to the package name specified in the <manifest> element.
 
 
 <update-checker-linker>
@@ -246,7 +246,7 @@ Manifest file structure
       The <plugin> and <plugin> attributes must both be "true" (as they both are by default) for the system to be able to instantiate the plugin.
       If either is "false", it cannot be instantiated.
     icon - There is no default icon.
-      An icon representing the plugin. The icon is displayed to users when a representation of the plugin is required on-screen. 
+      An icon representing the plugin. The icon is displayed to users when a representation of the plugin is required on-screen.
       If it is not set, the icon specified for the plugin as a whole is used instead (see the <plugin> element's icon attribute).
     label - There is no default value.
       A user-readable label for the plugin. The label is displayed on-screen when the plugin must be represented to the user.
@@ -254,7 +254,7 @@ Manifest file structure
     url - There is no default. The name must be specified.
       The url can be check the latest version of the apk scanner.
       The attribute value should be a fully qualified url address (such as, "https://github.sec.samsung.net/pages/sunggyu-kam/apk-scanner/latest-version").
-      
+
 
 <external-tool>
 
@@ -279,7 +279,7 @@ Manifest file structure
       The <plugin> and <plugin> attributes must both be "true" (as they both are by default) for the system to be able to instantiate the plugin.
       If either is "false", it cannot be instantiated.
     icon - There is no default icon.
-      An icon representing the plugin. The icon is displayed to users when a representation of the plugin is required on-screen. 
+      An icon representing the plugin. The icon is displayed to users when a representation of the plugin is required on-screen.
       If it is not set, the icon specified for the plugin as a whole is used instead (see the <plugin> element's icon attribute).
     label - There is no default value.
       A user-readable label for the plugin. The label is displayed on-screen when the plugin must be represented to the user.
@@ -289,7 +289,7 @@ Manifest file structure
       The attribute value should be a fully qualified class name (such as, "com.apkscanner.plugin.sample.PlayStore").
       However, as a shorthand, if the first character of the name is a period (for example, ".PlayStore"),
       it is appended to the package name specified in the <manifest> element.
-      
+
 
 <external-tool-linker>
 
@@ -318,7 +318,7 @@ Manifest file structure
       The <plugin> and <plugin> attributes must both be "true" (as they both are by default) for the system to be able to instantiate the plugin.
       If either is "false", it cannot be instantiated.
     icon - There is no default icon.
-      An icon representing the plugin. The icon is displayed to users when a representation of the plugin is required on-screen. 
+      An icon representing the plugin. The icon is displayed to users when a representation of the plugin is required on-screen.
       If it is not set, the icon specified for the plugin as a whole is used instead (see the <plugin> element's icon attribute).
     label - There is no default value.
       A user-readable label for the plugin. The label is displayed on-screen when the plugin must be represented to the user.
@@ -326,11 +326,11 @@ Manifest file structure
     url - There is no default. The name must be specified.
       The url can be check the latest version of the apk scanner.
       The attribute value should be a fully qualified url address (such as, "https://github.sec.samsung.net/pages/sunggyu-kam/apk-scanner/latest-version").
-      
+
 -->
 
 <manifest package="com.apkscanner.plugin.apkcompare" versionCode="1" versionName="1.0" minScannerVersion="2.4.0">
-    <plugin label="@plugin_name" description="@plugin_description" icon="ApkCompareIcon.png" >
+    <plugin label="@plugin_name" description="@plugin_description" icon="ApkCompareIcon.png" useConfigurationSetting="true" >
         <external-tool name=".ApkCompareLinker"
         			icon="ApkCompareIcon.png"
         			label="@compare"
@@ -338,15 +338,30 @@ Manifest file structure
         			like="difftool" />
     </plugin>
     <resources>
-        <string name="plugin_name">Apk Compare</string>
-        <string name="plugin_description">Launch Apk Compare Linker</string>
-        <string name="compare">Compare</string>
-        <string name="compare_description">Launch Apk Compare Linker</string>
+        <string name="plugin_name">APK Compare</string>
+        <string name="plugin_description">Launch APK Compare Linker</string>
+        <string name="compare">APK Compare</string>
+        <string name="compare_description">Launch APK Compare Linker</string>
+        <string name="no_such_compare">No such APK Compare.</string>
+        <string name="title_set_path">Select APK Compare Program</string>
+        <string name="title_introduce">Introduce APK Compare</string>
+        <string name="btn_explorer">Explorer</string>
+        <string name="btn_download">Go to download</string>
+        <string name="btn_ok">OK</string>
+        <string name="compare_intro_desc">It is a program that compares and outputs information of APK.</string>
+        <string name="download_url">https://github.com/apk-spectrum/apk-compare/releases</string>
     </resources>
     <resources lang="ko">
         <string name="plugin_name">APK 컴페어</string>
         <string name="plugin_description">APK 컴페어 프로그램을 실행합니다.</string>
-        <string name="compare">비교하기</string>
+        <string name="compare">APK 컴페어</string>
         <string name="compare_description">APK 컴페어 프로그램을 실행합니다.</string>
+        <string name="no_such_compare">APK 컴페어 프로그램을 찾을 수 없습니다.</string>
+        <string name="title_set_path">APK 컴페어 프로그램 지정</string>
+        <string name="title_introduce">APK 컴페어 프로그램 소개</string>
+        <string name="btn_explorer">탐색기</string>
+        <string name="btn_download">다운로드 바로가기</string>
+        <string name="btn_ok">확인</string>
+        <string name="compare_intro_desc">APK의 정보를 비교하고 출력해주는 프로그램입니다.</string>
     </resources>
 </manifest>
