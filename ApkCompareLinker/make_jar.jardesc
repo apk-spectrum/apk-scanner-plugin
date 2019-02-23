@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="MS949" standalone="no"?>
 <jardesc>
-    <jar path="apk-scanner-plugin/ApkCompareLinker.jar"/>
-    <options buildIfNeeded="true" compress="true" descriptionLocation="/apk-scanner-plugin/make_jar.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="true" overwrite="true" saveDescription="false" storeRefactorings="false" useSourceFolders="false"/>
+    <jar path="apk-scanner-plugin/ApkCompareLinker/ApkCompareLinker.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/ApkCompareLinker/make_jar.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="true" overwrite="true" saveDescription="false" storeRefactorings="false" useSourceFolders="false"/>
     <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
     <selectedProjects/>
     <manifest generateManifest="true" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
@@ -11,8 +11,8 @@
         </sealing>
     </manifest>
     <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
-        <javaElement handleIdentifier="=apk-scanner-plugin/src"/>
-        <javaElement handleIdentifier="=apk-scanner-plugin/res"/>
-        <file path="/apk-scanner-plugin/Manifest.xml"/>
+        <javaElement handleIdentifier="=ApkCompareLinker/src"/>
+        <javaElement handleIdentifier="=ApkCompareLinker/res"/>
+        <file path="/ApkCompareLinker/Manifest.xml"/>
     </selectedElements>
 </jardesc>
