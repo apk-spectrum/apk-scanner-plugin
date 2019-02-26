@@ -308,11 +308,12 @@ Manifest file structure
       
 -->
 
-<manifest package="com.apkscanner.plugin.apkscanner" versionCode="1" versionName="1.0" minScannerVersion="2.4.0">
+<manifest package="com.apkscanner.plugin.apkscanner.updatechecker" versionCode="1" versionName="1.0" minScannerVersion="2.4.0">
     <plugin label="@plugin_name" icon="ApkScannerIcon.png" useNetworkSetting="true" useConfigurationSetting="true" description="@plugin_description" >
         <update-checker-linker
         	targetPackageName="com.apkscanner"
-        	url="https://raw.githubusercontent.com/apk-spectrum/apk-scanner-dev/master/latest-version"
+        	url="https://raw.githubusercontent.com/apk-spectrum/apk-scanner/master/latest-version"
+        	updateUrl="https://github.com/apk-spectrum/apk-scanner/releases"
         	periodDay="7"
         	description="@plugin_description" />
     </plugin>
