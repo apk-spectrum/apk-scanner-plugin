@@ -24,15 +24,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
 import com.apkscanner.plugin.PlugInManager;
 import com.apkscanner.plugin.PlugInPackage;
-import com.apkscanner.resource.Resource;
 import com.apkscanner.util.SystemUtil;
 
 public class ApkCompareSelecter extends JFrame implements ActionListener {
@@ -44,13 +41,6 @@ public class ApkCompareSelecter extends JFrame implements ActionListener {
 
 	public ApkCompareSelecter(PlugInPackage plugInPackage) {
 		this.plugInPackage = plugInPackage;
-
-		try {
-			UIManager.setLookAndFeel((String)Resource.PROP_CURRENT_THEME.getData());
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-				| UnsupportedLookAndFeelException e1) {
-			e1.printStackTrace();
-		}
 
 		setTitle(plugInPackage.getResourceString("@plugin_name"));
 		setIconImage(new ImageIcon(plugInPackage.getIconURL()).getImage());

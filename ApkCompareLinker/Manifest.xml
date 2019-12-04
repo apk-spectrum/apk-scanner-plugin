@@ -329,7 +329,7 @@ Manifest file structure
 
 -->
 
-<manifest package="com.apkscanner.plugin.apkcompare" versionCode="1" versionName="1.0" minScannerVersion="2.4.0">
+<manifest package="com.apkscanner.plugin.apkcompare" versionCode="1" versionName="1.0" minScannerVersion="2.7.1">
     <plugin label="@plugin_name" description="@plugin_description" icon="ApkCompareIcon.png" useConfigurationSetting="true" >
         <external-tool name=".ApkCompareLinker"
         			icon="ApkCompareIcon.png"

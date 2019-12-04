@@ -38,7 +38,7 @@ public class ApkCompareLinker extends AbstractExternalTool {
 			savePath();
 			Thread t = new Thread(new Runnable() {
 				public void run() {
-					ConsolCmd.exc(new String[] {comparePath, src}, true);
+					ConsolCmd.exec(new String[] {comparePath, src}, true);
 				}
 			});
 			t.setPriority(Thread.NORM_PRIORITY);
@@ -57,7 +57,7 @@ public class ApkCompareLinker extends AbstractExternalTool {
 			savePath();
 			Thread t = new Thread(new Runnable() {
 				public void run() {
-					ConsolCmd.exc(new String[] {comparePath, src1, src2}, true);
+					ConsolCmd.exec(new String[] {comparePath, src1, src2}, true);
 				}
 			});
 			t.setPriority(Thread.NORM_PRIORITY);
