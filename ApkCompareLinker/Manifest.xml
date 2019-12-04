@@ -349,7 +349,7 @@ Manifest file structure
         <string name="btn_download">Go to download</string>
         <string name="btn_ok">OK</string>
         <string name="compare_intro_desc">It is a program that compares and outputs information of APK.</string>
-        <string name="download_url">https://github.com/apk-spectrum/apk-compare/releases</string>
+        <string name="download_url">http://mosaic.sec.samsung.net/kms/mosaicLayout.do?method=link&amp;type=mstore.application&amp;id=10199063110&amp;parentId=0</string>
     </resources>
     <resources lang="ko">
         <string name="plugin_name">APK 컴페어</string>
