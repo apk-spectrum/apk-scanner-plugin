@@ -3,14 +3,14 @@ package com.apkscanner.plugin.apkcompare;
 import java.awt.EventQueue;
 import java.io.File;
 
-import com.apkscanner.data.apkinfo.ApkInfo;
-import com.apkscanner.plugin.AbstractExternalTool;
-import com.apkscanner.plugin.PlugInManager;
-import com.apkscanner.plugin.PlugInPackage;
-import com.apkscanner.plugin.manifest.Component;
-import com.apkscanner.util.ConsolCmd;
-import com.apkscanner.util.Log;
-import com.apkscanner.util.SystemUtil;
+import com.apkspectrum.data.apkinfo.ApkInfo;
+import com.apkspectrum.plugin.AbstractExternalTool;
+import com.apkspectrum.plugin.PlugInManager;
+import com.apkspectrum.plugin.PlugInPackage;
+import com.apkspectrum.plugin.manifest.Component;
+import com.apkspectrum.util.ConsolCmd;
+import com.apkspectrum.util.Log;
+import com.apkspectrum.util.SystemUtil;
 import com.sun.jna.platform.win32.Advapi32Util;
 import com.sun.jna.platform.win32.WinReg;
 
