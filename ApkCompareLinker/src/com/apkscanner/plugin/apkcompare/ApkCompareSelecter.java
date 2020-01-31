@@ -28,9 +28,9 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
-import com.apkscanner.plugin.PlugInManager;
-import com.apkscanner.plugin.PlugInPackage;
-import com.apkscanner.util.SystemUtil;
+import com.apkspectrum.plugin.PlugInManager;
+import com.apkspectrum.plugin.PlugInPackage;
+import com.apkspectrum.util.SystemUtil;
 
 public class ApkCompareSelecter extends JFrame implements ActionListener {
 	private static final long serialVersionUID = -6344550881836031071L;
