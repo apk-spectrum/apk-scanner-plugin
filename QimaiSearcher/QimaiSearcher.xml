@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Plugin Manifest
+  Every plugin archive must have an Manifest.xml file (with precisely that name) in its root directory.
+  If no archive file, can be possible existed only xml file with any name.
+
+
+Manifest file conventions
+  Elements
+    Only the <manifest> and <plugin> elements are required.
+    They each must be present and can occur only once.
+    Most of the other elements can occur many times or not at all.
+
+  Declaring class names
+    Plugin elements correspond to Java objects.
+    If you define a subclass, the subclass is declared through a name attribute.
+    The name must include the full package designation. For example, a plgin subclass might be declared as follows: 
+      "<package-searcher name="com.apkscanner.plugin.sample.PlayStore" ... />"
+    However, if the first character of the string is a period, the plugin's package name (as specified by the <manifest> element's package attribute) is appended to the string.
+    The following assignment is the same as that shown above:
+      "<package-searcher name=".PlayStore" ... />"
+
+  Icons and labels
+    A number of elements have icon and label attributes for a small icon and a text label that can be displayed to users.
+    Some also have a description attribute for longer, explanatory text that can also be shown on-screen. 
+    In every case, the icon and label that are set in a containing element become the default icon and label settings for all of the container's subelements.
+    Thus, the icon and label that are set in the <plugin> element are the default icon and label for each of the plugin's components.
+    
+  Enabled
+    The most elements have enabled attributes that can set activillity for container's.
+    It's can be possible change by the plugin manager or self.
+    So, it's mean to default value for the container's when plugin's imported.
+
+
+Manifest file structure
+
+<manifest>
+
+  SYNTAX:
+    <manifest package="string"
+              versionCode="integer"
+              versionName="string"
+              minScannerVersion="string" >
+      ...
+    </manifest>
+
+  CONTAINED IN: none
+
+  MUST CONTAIN: <plugin>
+
+  CAN CONTAIN: <resources>
+
+  DESCRIPTION:
+    The root element of the PluginManifest.xml file.
+    It must contain an <plugin> element and specify package attributes.
+
+  ATTRIBUTES:
+    package
+      A full Java-language-style package name for the plugin. The name should be unique.
+    versionCode
+      An internal version number. This number is used only to the Plugin Update Checker.
+    versionName
+      The version number shown to users.
+    minScannerVersion
+    	The ApkScanner min version of supported
+
+
+<plugin>
+
+  SYNTAX:
+    <plugin description="string resource"
+            enabled=["true" | "false"]
+            icon="drawable resource"
+            label="string resource"
+            useConfigurationSetting=["true" | "false"]
+            useNetworkSetting=["true" | "false"] >
+      ...
+    </plugin>
+
+  CONTAINED IN: <manifest>
+
+  CAN CONTAIN: <package-searcher>, <package-searcher-linker>, <update-checker>, <update-checker-linker>, <extra-tool>, <extra-tool-linker>
+
+  DESCRIPTION:
+    The declaration of the plugin.
+    This element contains subelements that declare each of the plugin's components and has attributes that can affect all the components.
+    Many of these attributes (such as icon, label) set default values for corresponding attributes of the component elements.
+
+  ATTRIBUTES:
+    description - There is no default value.
+      User-readable text about the plugin, longer and more descriptive than the plugin label.
+      The value must be set as a reference to a string resource. Unlike the label, it cannot be a raw string.
+    enabled - The default value is "true".
+      Whether or not the plugin manager can instantiate components of the plugin ? "true" if it can, and "false" if not.
+      If the value is "true", each component's enabled attribute determines whether that component is enabled or not.
+      If the value is "false", it overrides the component-specific values; all components are disabled.
+    icon - There is no default icon.
+      An icon for the plugin as whole, and the default icon for each of the plugin's.
+      See the individual icon attributes for <package-searcher>, <package-searcher-linker>, <update-checker>, <update-checker-linker>, <extra-tool> and <extra-tool-linker> elements.
+    label - The default value is package attribute of <manifest> element.
+      A user-readable label for the plugin as a whole, and a default label for each of the plugin's components.
+      See the individual label attributes for <package-searcher>, <package-searcher-linker>, <update-checker>, <update-checker-linker>, <extra-tool> and <extra-tool-linker> elements.
+    useConfigurationSetting - Display they each plugin setting panel of configurations into a setting dialog.
+		useNetworkSetting -Display they each plugin setting panel of network into a setting dialog.
+
+<package-searcher>
+
+  SYNTAX:
+    <package-searcher description="string resource"
+    					enabled=["true" | "false"]
+              icon="drawable resource"
+              label="string resource"
+              name="string"
+              pluginGroup="string" />
+
+  CONTAINED IN: <plugin>
+
+  DESCRIPTION:
+    The declaration of external searcher by package or app name.
+    For example, It can be using to search package by package name from Qimai.
+    Must be using in jar archive. Because, It's subclass of Searcher and need specified class.
+
+  ATTRIBUTES:
+    description - There is no default value.
+      User-readable text about the plugin, longer and more descriptive than the plugin label.
+      The value must be set as a reference to a string resource. Unlike the label, it cannot be a raw string.
+    enabled - The default value is "true".
+      Whether or not the plugin manager can be shown to users  by the pacakge manager ? "true" if it can be, and "false" if not.
+      The <plugin> element has its own enabled attribute that applies to all plugin components, including activities.
+      The <plugin> and <plugin> attributes must both be "true" (as they both are by default) for the system to be able to instantiate the plugin.
+      If either is "false", it cannot be instantiated.
+    icon - There is no default icon.
+      An icon representing the plugin. The icon is displayed to users when a representation of the plugin is required on-screen. 
+      If it is not set, the icon specified for the plugin as a whole is used instead (see the <plugin> element's icon attribute).
+    label - There is no default value.
+      A user-readable label for the plugin. The label is displayed on-screen when the plugin must be represented to the user.
+      If this attribute is not set, the label set for the plugin as a whole is used instead (see the <plugin> element's label attribute).
+    name - There is no default. The name must be specified.
+      The name of the class that implements the plugin, a subclass of IPlugIn.
+      The attribute value should be a fully qualified class name (such as, "com.apkscanner.plugin.sample.PlayStore").
+      However, as a shorthand, if the first character of the name is a period (for example, ".PlayStore"),
+      it is appended to the package name specified in the <manifest> element.
+    pluginGroup - 
+
+
+<package-searcher-linker>
+
+  SYNTAX:
+    <package-searcher-linker description="string resource"
+    								 enabled=["true" | "false"]
+                     icon="drawable resource"
+                     label="string resource"
+                     name="string"
+              			 pluginGroup="string"
+                     url="string" >
+      ...
+    </package-searcher-linker>
+
+  CONTAINED IN: <plugin>
+  
+  CAN CONTAIN: <linker>
+
+  DESCRIPTION:
+    The declaration of external searcher by package or app name.
+    For example, It can be using to search package by package name from Qimai.
+    It's only a simple connection to target url.
+
+  ATTRIBUTES:
+    enabled - The default value is "true".
+      Whether or not the plugin manager can be shown to users  by the pacakge manager ? "true" if it can be, and "false" if not.
+      The <plugin> element has its own enabled attribute that applies to all plugin components, including activities.
+      The <plugin> and <plugin> attributes must both be "true" (as they both are by default) for the system to be able to instantiate the plugin.
+      If either is "false", it cannot be instantiated.
+    icon - There is no default icon.
+      An icon representing the plugin. The icon is displayed to users when a representation of the plugin is required on-screen. 
+      If it is not set, the icon specified for the plugin as a whole is used instead (see the <plugin> element's icon attribute).
+    label - There is no default value.
+      A user-readable label for the plugin. The label is displayed on-screen when the plugin must be represented to the user.
+      If this attribute is not set, the label set for the plugin as a whole is used instead (see the <plugin> element's label attribute).
+    url - There is no default. The name must be specified.
+      The url of website that access by browser. there are website that search information for package's
+      The attribute value should be a fully qualified url address (such as, "https://play.google.com/store").
+      
+
+<update-checker>
+
+  SYNTAX:
+    <update-checker description="string resource"
+    							  enabled=["true" | "false"]
+                    icon="drawable resource"
+                    label="string resource"
+                    name="string"
+              			pluginGroup="string" />
+
+  CONTAINED IN: <plugin>
+
+  DESCRIPTION:
+    The declaration of update checker for the apk scanner.
+    Must be using in jar archive. Because, It's subclass of Searcher and need specified class.
+
+  ATTRIBUTES:
+    enabled - The default value is "true".
+      Whether or not the plugin manager can be shown to users  by the pacakge manager ? "true" if it can be, and "false" if not.
+      The <plugin> element has its own enabled attribute that applies to all plugin components, including activities.
+      The <plugin> and <plugin> attributes must both be "true" (as they both are by default) for the system to be able to instantiate the plugin.
+      If either is "false", it cannot be instantiated.
+    icon - There is no default icon.
+      An icon representing the plugin. The icon is displayed to users when a representation of the plugin is required on-screen. 
+      If it is not set, the icon specified for the plugin as a whole is used instead (see the <plugin> element's icon attribute).
+    label - There is no default value.
+      A user-readable label for the plugin. The label is displayed on-screen when the plugin must be represented to the user.
+      If this attribute is not set, the label set for the plugin as a whole is used instead (see the <plugin> element's label attribute).
+    name - There is no default. The name must be specified.
+      The name of the class that implements the plugin, a subclass of IPlugIn.
+      The attribute value should be a fully qualified class name (such as, "com.apkscanner.plugin.sample.PlayStore").
+      However, as a shorthand, if the first character of the name is a period (for example, ".PlayStore"),
+      it is appended to the package name specified in the <manifest> element.  
+
+
+<update-checker-linker>
+
+  SYNTAX:
+    <update-checker-linker description="string resource"
+    							  			 enabled=["true" | "false"]
+                           icon="drawable resource"
+                           label="string resource"
+                           name="string"
+              			       pluginGroup="string"
+                           url="string" >
+      ...
+    </update-checker-linker>
+
+  CONTAINED IN: <plugin>
+
+  CAN CONTAIN: <linker>
+
+  DESCRIPTION:
+    The declaration of update checker for the apk scanner.
+    It's only a simple connection to target url.
+
+  ATTRIBUTES:
+    enabled - The default value is "true".
+      Whether or not the plugin manager can be shown to users  by the pacakge manager ? "true" if it can be, and "false" if not.
+      The <plugin> element has its own enabled attribute that applies to all plugin components, including activities.
+      The <plugin> and <plugin> attributes must both be "true" (as they both are by default) for the system to be able to instantiate the plugin.
+      If either is "false", it cannot be instantiated.
+    icon - There is no default icon.
+      An icon representing the plugin. The icon is displayed to users when a representation of the plugin is required on-screen. 
+      If it is not set, the icon specified for the plugin as a whole is used instead (see the <plugin> element's icon attribute).
+    label - There is no default value.
+      A user-readable label for the plugin. The label is displayed on-screen when the plugin must be represented to the user.
+      If this attribute is not set, the label set for the plugin as a whole is used instead (see the <plugin> element's label attribute).
+    url - There is no default. The name must be specified.
+      The url can be check the latest version of the apk scanner.
+      The attribute value should be a fully qualified url address (such as, "https://github.sec.samsung.net/pages/sunggyu-kam/apk-scanner/latest-version").
+      
+
+<extra-tool>
+
+  SYNTAX:
+    <extra-tool description="string resource"
+    							  enabled=["true" | "false"]
+                    icon="drawable resource"
+                    label="string resource"
+                    name="string"
+              			       pluginGroup="string" />
+
+  CONTAINED IN: <plugin>
+
+  DESCRIPTION:
+    The declaration of extra tool's.
+    Must be using in jar archive. Because, It's subclass of Searcher and need specified class.
+
+  ATTRIBUTES:
+    enabled - The default value is "true".
+      Whether or not the plugin manager can be shown to users  by the pacakge manager ? "true" if it can be, and "false" if not.
+      The <plugin> element has its own enabled attribute that applies to all plugin components, including activities.
+      The <plugin> and <plugin> attributes must both be "true" (as they both are by default) for the system to be able to instantiate the plugin.
+      If either is "false", it cannot be instantiated.
+    icon - There is no default icon.
+      An icon representing the plugin. The icon is displayed to users when a representation of the plugin is required on-screen. 
+      If it is not set, the icon specified for the plugin as a whole is used instead (see the <plugin> element's icon attribute).
+    label - There is no default value.
+      A user-readable label for the plugin. The label is displayed on-screen when the plugin must be represented to the user.
+      If this attribute is not set, the label set for the plugin as a whole is used instead (see the <plugin> element's label attribute).
+    name - There is no default. The name must be specified.
+      The name of the class that implements the plugin, a subclass of IPlugIn.
+      The attribute value should be a fully qualified class name (such as, "com.apkscanner.plugin.sample.PlayStore").
+      However, as a shorthand, if the first character of the name is a period (for example, ".PlayStore"),
+      it is appended to the package name specified in the <manifest> element.
+      
+
+<extra-tool-linker>
+
+  SYNTAX:
+    <extra-tool-linker enabled=["true" | "false"]
+                           icon="drawable resource"
+                           label="string resource"
+                           name="string"
+                           url="string"
+              			       pluginGroup="string" >
+      ...
+    </extra-tool-linker>
+
+  CONTAINED IN: <plugin>
+
+  CAN CONTAIN: <linker>
+
+  DESCRIPTION:
+    The declaration of update checker for the apk scanner.
+    It's only a simple connection to target url.
+
+  ATTRIBUTES:
+    enabled - The default value is "true".
+      Whether or not the plugin manager can be shown to users  by the pacakge manager ? "true" if it can be, and "false" if not.
+      The <plugin> element has its own enabled attribute that applies to all plugin components, including activities.
+      The <plugin> and <plugin> attributes must both be "true" (as they both are by default) for the system to be able to instantiate the plugin.
+      If either is "false", it cannot be instantiated.
+    icon - There is no default icon.
+      An icon representing the plugin. The icon is displayed to users when a representation of the plugin is required on-screen. 
+      If it is not set, the icon specified for the plugin as a whole is used instead (see the <plugin> element's icon attribute).
+    label - There is no default value.
+      A user-readable label for the plugin. The label is displayed on-screen when the plugin must be represented to the user.
+      If this attribute is not set, the label set for the plugin as a whole is used instead (see the <plugin> element's label attribute).
+    url - There is no default. The name must be specified.
+      The url can be check the latest version of the apk scanner.
+      The attribute value should be a fully qualified url address (such as, "https://github.sec.samsung.net/pages/sunggyu-kam/apk-scanner/latest-version").
+      
+-->
+
+<manifest package="com.apkscanner.plugin.QimaiSearcher" versionCode="1" versionName="1.0" minScannerVersion="2.4.0">
+    <plugin label="@plugin_name" icon="QimaiIcon.png" description="@plugin_description" >
+        <package-searcher-linker
+        	target="package"
+        	url="https://www.qimai.cn/search/android/search/%TARGET%" 
+        	label="@search_by_packagename"
+        	icon="QimaiIcon.png"
+        	pluginGroup=".searcherGroup"
+        	description="@search_by_packagename_desc" />
+
+        <package-searcher-linker
+        	target="label"
+        	url="https://www.qimai.cn/search/android/search/%TARGET%"
+        	preferLanguage="ko;en"
+        	label="@search_by_appname"
+        	icon="QimaiIcon.png"
+        	visibleToBasic="false"
+        	pluginGroup=".searcherGroup"
+        	description="@search_by_appname_desc" />
+
+        <plugin-group name=".searcherGroup" label="@searcher_group" description="@searcher_group_desc" />
+    </plugin>
+    <!--
+    <configuration name="http.proxyHost" value="000.000.000.000" />
+    <configuration name="http.proxyPort" value="0000" />
+    <configuration name="https.proxyHost" value="000.000.000.000" />
+    <configuration name="https.proxyPort" value="0000" />
+     -->
+    <resources>
+        <string name="plugin_name">Google Qimai Searcher</string>
+        <string name="plugin_description">Google Qimai Searcher</string>
+        <string name="search_by_packagename">Qimai by PackageName</string>
+        <string name="search_by_packagename_desc">Search app in the Qimai by package name</string>
+        <string name="search_by_appname">Qimai by App name</string>
+        <string name="search_by_appname_desc">Search app in the Qimai by app name</string>
+        <string name="searcher_group">Qimai Searcher</string>
+        <string name="searcher_group_desc">Search app in the Qimai </string>
+        <string name=""></string>
+    </resources>
+    <resources lang="ko">
+        <string name="plugin_name">Qimai 검색 플러그인</string>
+        <string name="plugin_description">Qimai에서 앱을 검색 할 수 있습니다.</string>
+        <string name="search_by_packagename">패키지명으로 검색</string>
+        <string name="search_by_packagename_desc">Qimai에서 패키지명으로 검색</string>
+        <string name="search_by_appname">앱 이름으로 검색</string>
+        <string name="search_by_appname_desc">Qimai에서 앱명으로 검색</string>
+        <string name="searcher_group">Qimai 검색</string>
+        <string name="searcher_group_desc">Qimai에서 패키지를 검색 합니다.</string>
+    </resources>
+</manifest>
