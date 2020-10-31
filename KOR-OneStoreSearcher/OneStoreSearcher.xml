@@ -333,7 +333,7 @@ Manifest file structure
     <plugin label="@plugin_name" icon="OneStoreIcon.png" description="@plugin_description" >
         <package-searcher-linker
         	target="label"
-        	url="http://onestore.co.kr/userpoc/search?query=%TARGET%"
+        	url="https://m.onestore.co.kr/mobilepoc/search/integrateSearch.omp?integrateQuery=%TARGET%"
         	preferLanguage="ko;en"
         	label="@search_by_appname"
         	icon="OneStoreIcon.png"
