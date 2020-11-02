@@ -342,7 +342,7 @@ Manifest file structure
         <package-searcher-linker
         	target="label"
         	url="https://www.qimai.cn/search/android/search/%TARGET%"
-        	preferLanguage="ko;en"
+        	preferLanguage="zh-rCN;zh;en"
         	label="@search_by_appname"
         	icon="QimaiIcon.png"
         	visibleToBasic="false"
